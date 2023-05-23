@@ -1,4 +1,5 @@
 // Code to toggle navbar on smaller devices
+const name = "wasty";
 const navbarToggle = document.querySelector(".navbar--toggle");
 const navbarItems = document.querySelector(".navbar--items");
 const closeBtn = document.querySelector(".close--button");
@@ -13,40 +14,42 @@ closeBtn.addEventListener("click", function () {
   navbarToggle.classList.remove("active");
 });
 
-
 // Scroll Effect of the navbar and the target section
 // Get all the nav links
-const navLinks = document.querySelectorAll('.nav--link');
+const navLinks = document.querySelectorAll(".nav--link");
 
 // Function to handle the scrolling and update the active link
 function handleNavScroll() {
   const scrollPosition = window.scrollY;
 
   // Loop through each section and check if it's in the viewport
-  document.querySelectorAll('section').forEach((section) => {
+  document.querySelectorAll("section").forEach((section) => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
 
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+    if (
+      scrollPosition >= sectionTop &&
+      scrollPosition < sectionTop + sectionHeight
+    ) {
       // Remove active class from all nav links
-      navLinks.forEach((link) => link.classList.remove('active'));
+      navLinks.forEach((link) => link.classList.remove("active"));
 
       // Find the corresponding nav link based on the section ID and add the active class
-      const sectionId = section.getAttribute('id');
-      const activeLink = document.querySelector(`.nav--link[href="#${sectionId}"]`);
-      activeLink.classList.add('active');
+      const sectionId = section.getAttribute("id");
+      const activeLink = document.querySelector(
+        `.nav--link[href="#${sectionId}"]`
+      );
+      activeLink.classList.add("active");
     }
   });
 }
 
 // Add event listener for scroll event
-window.addEventListener('scroll', handleNavScroll);
-
-
+window.addEventListener("scroll", handleNavScroll);
 
 // typewriter effect code
 
-const words = ["faster   ", "easier   "];
+const words = ["Now!   ", "faster!   ", "easier!   "];
 let currentWordIndex = 0;
 let currentWord = words[currentWordIndex];
 let isDeleting = false;
@@ -84,4 +87,3 @@ function typewriterEffect() {
 }
 
 typewriterEffect();
-
